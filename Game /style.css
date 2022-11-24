@@ -1,0 +1,968 @@
+html,
+body {
+  margin: 0;
+}
+img {
+  width: 35vh;
+}
+
+#img {
+  width: 30vw;
+  height: 15vh;
+}
+
+img.img-scene-1 {
+  width: 35vh;
+  margin-left: 10vw;
+}
+
+.logo {
+  margin-bottom: 2rem;
+  width: 25vh;
+}
+
+.logo-download-screen {
+  margin-bottom: 2rem;
+  width: 30vh;
+}
+
+.break-text {
+  margin-top: 1.5rem;
+  font-family: iciencadena;
+  font-size: 2rem;
+  color: white;
+  -webkit-text-stroke-width: 0.1rem;
+  -webkit-text-stroke-color: black;
+}
+
+#main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('./assets/images/background.svg');
+  background-size: cover;
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.bg {
+  background-color: green;
+  border-radius: 5vh;
+  animation: loading 2s linear infinite;
+}
+
+.wrapper {
+  border: 1px solid black;
+  border-radius: 4rem;
+  overflow: hidden;
+  width: 75vw;
+  height: 7vh;
+}
+
+.el {
+  isolation: isolate;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  width: 75vw;
+  height: 7vh;
+}
+.el:after {
+  content: 'Mini Game is loading';
+  color: #008000;
+  mix-blend-mode: difference;
+}
+@keyframes logo-animation {
+  0% {
+    margin-top: 1.5rem;
+  }
+  50% {
+    margin-top: 2.2rem;
+  }
+  100% {
+    margin-top: 1.5rem;
+  }
+}
+
+#logo {
+  position: absolute;
+  top: 0;
+  animation: logo-animation 2s linear infinite;
+}
+
+#non-logo {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@font-face {
+  font-family: iciencadena;
+  src: url(./assets/ICIELCADENA.OTF);
+}
+
+/* Progress Bar & its Animation */
+.progress-bar {
+  position: relative;
+  border: #ccc solid 1px;
+  width: 75vw;
+  height: 4vh;
+  line-height: 3vh;
+  vertical-align: middle;
+  overflow: hidden;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 4rem;
+  box-shadow: 0 4px 10px -5px rgba(0, 0, 0, 0.25);
+}
+.bar {
+  position: absolute;
+  top: 0;
+  height: 4vh;
+  overflow: hidden;
+}
+.bar > span {
+  position: absolute;
+  display: block;
+  width: 75vw;
+  height: 7vh;
+  text-align: center;
+}
+.bar.positive {
+  background: #fff;
+  right: 0;
+  width: 75vw;
+  -webkit-animation: animate-positive 4s;
+  animation: animate-positive 4s;
+}
+.bar.positive > span {
+  right: 0;
+  color: black;
+  font-size: 1.2rem;
+  font-family: iciencadena;
+}
+.bar.negative {
+  position: absolute;
+  background-image: linear-gradient(#00ff00, #005000);
+  left: 0;
+  width: 75vw;
+  border-radius: 4rem;
+  -webkit-animation: animate-negative 4s;
+  animation: animate-negative 4s;
+}
+.bar.negative > span {
+  left: 0;
+  color: white;
+  font-size: 1.2rem;
+  font-family: iciencadena;
+  -webkit-text-stroke-width: 0.06rem;
+  -webkit-text-stroke-color: black;
+}
+
+@-webkit-keyframes animate-positive {
+  0% {
+    width: 100%;
+  }
+}
+@keyframes animate-positive {
+  0% {
+    width: 100%;
+  }
+}
+@-webkit-keyframes animate-negative {
+  0% {
+    width: 0%;
+  }
+}
+@keyframes animate-negative {
+  0% {
+    width: 0%;
+  }
+}
+
+#tutorial_audio {
+  display: none;
+}
+
+#ingredient_audio {
+  display: none;
+}
+
+/* Game Play Section */
+
+#scene2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('./assets/images/Restaurant.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.bannerContainer {
+  flex: 1;
+}
+
+#table-wrapper {
+  width: 100vw;
+  flex: 2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 5rem;
+}
+
+.pizza_division {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  top: 0;
+}
+
+#plate,
+.ingredient,
+.dough {
+  left: 30vw;
+}
+
+#table {
+  position: absolute;
+  width: 100vw;
+}
+
+#plate {
+  margin-top: 5vh;
+  width: 40vw;
+  z-index: 1;
+  position: absolute;
+}
+
+@keyframes tutorial {
+  0% {
+    height: 11vh;
+    margin-right: 50vw;
+    margin-bottom: -5vh;
+  }
+  10% {
+    height: 10vh;
+    margin-right: 50vw;
+    margin-bottom: -5vh;
+  }
+  20% {
+    height: 11vh;
+    margin-right: 50vw;
+    margin-bottom: -5vh;
+  }
+  25% {
+    height: 11vh;
+    margin-right: 30vw;
+    margin-bottom: 15vh;
+  }
+  30% {
+    height: 10vh;
+    margin-right: 30vw;
+    margin-bottom: 15vh;
+  }
+  40% {
+    height: 11vh;
+    margin-right: 30vw;
+    margin-bottom: 15vh;
+  }
+  45% {
+    height: 11vh;
+    margin-right: -15vw;
+    margin-bottom: 25vh;
+  }
+  50% {
+    height: 10vh;
+    margin-right: -15vw;
+    margin-bottom: 25vh;
+  }
+  60% {
+    height: 11vh;
+    margin-right: -15vw;
+    margin-bottom: 25vh;
+  }
+  65% {
+    height: 11vh;
+    margin-right: -65vw;
+    margin-bottom: 15vh;
+  }
+  70% {
+    height: 10vh;
+    margin-right: -65vw;
+    margin-bottom: 15vh;
+  }
+  80% {
+    height: 11vh;
+    margin-right: -65vw;
+    margin-bottom: 15vh;
+  }
+  85% {
+    height: 11vh;
+    margin-right: -85vw;
+    margin-bottom: -5vh;
+  }
+  90% {
+    height: 10vh;
+    margin-right: -85vw;
+    margin-bottom: -5vh;
+  }
+  100% {
+    height: 11vh;
+    margin-right: -85vw;
+    margin-bottom: -5vh;
+  }
+}
+
+.hand {
+  z-index: 2;
+  height: 11vh;
+  margin-right: 50vw;
+  margin-bottom: -5vh;
+  animation: tutorial 5s linear infinite;
+}
+
+@keyframes pizza_delivery_tutorial {
+  0% {
+    height: 11vh;
+  }
+  35% {
+    height: 11vh;
+  }
+  50% {
+    height: 10vh;
+  }
+  65% {
+    height: 11vh;
+  }
+  100% {
+    height: 11vh;
+  }
+}
+
+.hand_end_game {
+  z-index: 7;
+  height: 11vh;
+  margin-top: 15vh;
+  margin-left: 10vw;
+  animation: pizza_delivery_tutorial 1.5s linear infinite;
+}
+
+.dough {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  /* height: fit-content; */
+  margin-top: 5vh;
+}
+
+.ingredient {
+  display: none;
+  position: absolute;
+  /* height: fit-content; */
+  margin-top: 4vh;
+  width: 21vh;
+}
+
+.ingredient_static {
+  position: absolute;
+  width: 30vw;
+  height: 10vh;
+}
+
+.ingredient-add {
+  display: block;
+  bottom: 20vh;
+}
+
+.ingredient-add.sauce {
+  bottom: 19vh;
+}
+
+.sause {
+  z-index: 2;
+  bottom: 19vh;
+}
+
+.sause_static {
+  bottom: 23vh;
+  right: 1vh;
+}
+
+.cheese {
+  z-index: 3;
+}
+
+.cheese_static {
+  bottom: 35vh;
+  left: 6vh;
+}
+
+.bacon {
+  z-index: 4;
+}
+
+.bacon_static {
+  left: 1vh;
+  bottom: 24vh;
+}
+
+.capsicum {
+  z-index: 5;
+}
+
+.capsicum_static {
+  bottom: 41vh;
+  left: 36vw;
+}
+
+.mushroom {
+  z-index: 6;
+}
+
+.mushroom_static {
+  right: 6vh;
+  bottom: 35vh;
+}
+
+#banner {
+  width: 100vw;
+  z-index: 5;
+}
+
+#order_menu {
+  position: absolute;
+  width: 20vw;
+  right: 15vw;
+  top: 10vh;
+}
+
+#banner,
+#banner_gif,
+#banner_still_character {
+  position: absolute;
+  left: 0;
+}
+
+#banner_gif,
+#banner_still_character {
+  width: 30vh;
+  bottom: 45vh;
+}
+
+/* DOWNLOAD NOW SECTION */
+#non-logo-download {
+  padding-top: 14rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.character-container {
+  flex: 13;
+  display: flex;
+  align-items: flex-end;
+}
+
+.character-container > .character {
+  width: 100vw;
+}
+
+#download-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: url('./assets/images/Background_download.svg');
+  background-size: cover;
+}
+
+#download-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-size: cover;
+}
+
+@keyframes download_button {
+  0% {
+    width: 80vw;
+  }
+  50% {
+    width: 90vw;
+  }
+  100% {
+    width: 80vw;
+  }
+}
+
+#download-now {
+  position: absolute;
+  animation: download_button 0.7s linear infinite;
+}
+
+#dl-button-wrapper {
+  flex: 4;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#dl-link {
+  display: flex;
+  justify-content: center;
+}
+
+.character {
+  width: 25rem;
+  height: 60vh;
+  margin-top: -20vh;
+}
+
+#plate {
+  bottom: 17vh;
+}
+
+img.dough {
+  bottom: 17vh;
+  width: 43vw;
+  left: 28vw;
+}
+
+.cheese {
+  left: 31vw;
+}
+
+.sause {
+  left: 31vw;
+}
+
+.capsicum {
+  bottom: 21vh;
+  width: 33vw;
+  left: 34vw;
+}
+.bacon {
+  bottom: 21vh;
+  width: 29vw;
+  left: 35vw;
+}
+.mushroom {
+  bottom: 21vh;
+  width: 26vw;
+  left: 36vw;
+}
+
+@keyframes flying_pizza {
+  0% {
+    bottom: 0;
+    left: 0;
+  }
+  100% {
+    bottom: 40vh;
+    left: -20vw;
+  }
+}
+
+.pizza_animate {
+  animation: flying_pizza 0.5s linear;
+}
+
+/* iPhone X */
+@media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
+  #banner,
+  #banner_gif,
+  #banner_still_character {
+    top: 13vh;
+  }
+
+  .bannerContainer {
+    flex: 2;
+    display: flex;
+  }
+
+  @keyframes tutorial {
+    0% {
+      height: 11vh;
+      margin-right: 50vw;
+      margin-bottom: 15vh;
+    }
+    10% {
+      height: 10vh;
+      margin-right: 50vw;
+      margin-bottom: 15vh;
+    }
+    20% {
+      height: 11vh;
+      margin-right: 50vw;
+      margin-bottom: 15vh;
+    }
+    25% {
+      height: 11vh;
+      margin-right: 25vw;
+      margin-bottom: 23vh;
+    }
+    30% {
+      height: 10vh;
+      margin-right: 25vw;
+      margin-bottom: 23vh;
+    }
+    40% {
+      height: 11vh;
+      margin-right: 25vw;
+      margin-bottom: 23vh;
+    }
+    45% {
+      height: 11vh;
+      margin-right: -20vw;
+      margin-bottom: 28vh;
+    }
+    50% {
+      height: 10vh;
+      margin-right: -20vw;
+      margin-bottom: 28vh;
+    }
+    60% {
+      height: 11vh;
+      margin-right: -20vw;
+      margin-bottom: 28vh;
+    }
+    65% {
+      height: 11vh;
+      margin-right: -65vw;
+      margin-bottom: 23vh;
+    }
+    70% {
+      height: 10vh;
+      margin-right: -65vw;
+      margin-bottom: 23vh;
+    }
+    80% {
+      height: 11vh;
+      margin-right: -65vw;
+      margin-bottom: 23vh;
+    }
+    85% {
+      height: 11vh;
+      margin-right: -85vw;
+      margin-bottom: 15vh;
+    }
+    90% {
+      height: 10vh;
+      margin-right: -85vw;
+      margin-bottom: 15vh;
+    }
+    100% {
+      height: 11vh;
+      margin-right: -85vw;
+      margin-bottom: 15vh;
+    }
+  }
+
+  .hand {
+    margin-right: 50vw;
+    margin-bottom: 15vh;
+    animation: tutorial 5s linear infinite;
+  }
+
+  #table-wrapper {
+    align-items: flex-end;
+  }
+
+  #img {
+    width: 30vw;
+    height: 10vh
+  }
+
+  img {
+    width: 35vw;
+  }
+
+  #plate {
+    bottom: 14.5vh;
+  }
+
+  img.dough {
+    bottom: 15vh;
+    width: 43vw;
+  }
+
+  .sause {
+    bottom: 17vh;
+    width: 37vw;
+  }
+
+  .capsicum {
+    width: 33vw;
+    bottom: 19vh;
+  }
+  .bacon {
+    width: 29vw;
+    bottom: 18vh;
+  }
+  .mushroom {
+    width: 26vw;
+    bottom: 18vh;
+  }
+
+  .cheese {
+    width: 37vw;
+    bottom: 17.5vh;
+  }
+
+  .sause_static {
+    bottom: 21vh;
+    right: 1vh;
+  }
+
+  .cheese_static {
+    bottom: 29vh;
+    left: 6vh;
+  }
+
+  .bacon_static {
+    left: 1vh;
+    bottom: 21vh;
+  }
+
+  .capsicum_static {
+    bottom: 34vh;
+  }
+
+  .mushroom_static {
+    right: 6vh;
+    bottom: 28vh;
+  }
+
+  .ingredient_static {
+    width: 30vw;
+    height: 10vh;
+  }
+
+  #download-now {
+    bottom: 14vh;
+  }
+
+  .hand_end_game {
+    margin-bottom: 12vh;
+    margin-left: 18vw;
+  }
+}
+
+/* For tablets in portrait mode */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+
+  @keyframes download_button {
+    0% {
+      width: 60vw;
+    }
+    50% {
+      width: 65vw;
+    }
+    100% {
+      width: 60vw;
+    }
+  }
+
+  #download-now {
+    bottom: 10vh;
+  }
+
+  #download-now {
+    position: absolute;
+    animation: download_button 0.7s linear infinite;
+  }
+
+  .bar.negative > span {
+    font-size: 2rem;
+    -webkit-text-stroke-width: 0.08rem
+  }
+
+  .bar.positive > span {
+    font-size: 2rem;
+  }
+
+  .break-text {
+    font-size: 4rem;
+    -webkit-text-stroke-width: 0.18rem;
+  }
+
+  @keyframes tutorial {
+  0% {
+    height: 11vh;
+    margin-right: 50vw;
+    margin-bottom: -25vh;
+  }
+  10% {
+    height: 10vh;
+    margin-right: 50vw;
+    margin-bottom: -25vh;
+  }
+  20% {
+    height: 11vh;
+    margin-right: 50vw;
+    margin-bottom: -25vh;
+  }
+  25% {
+    height: 11vh;
+    margin-right: 30vw;
+    margin-bottom: 0;
+  }
+  30% {
+    height: 10vh;
+    margin-right: 30vw;
+    margin-bottom: 0;
+  }
+  40% {
+    height: 11vh;
+    margin-right: 30vw;
+    margin-bottom: 0;
+  }
+  45% {
+    height: 11vh;
+    margin-right: -15vw;
+    margin-bottom: 15vh;
+  }
+  50% {
+    height: 10vh;
+    margin-right: -15vw;
+    margin-bottom: 15vh;
+  }
+  60% {
+    height: 11vh;
+    margin-right: -15vw;
+    margin-bottom: 15vh;
+  }
+  65% {
+    height: 11vh;
+    margin-right: -65vw;
+    margin-bottom: 0;
+  }
+  70% {
+    height: 10vh;
+    margin-right: -65vw;
+    margin-bottom: 0;
+  }
+  80% {
+    height: 11vh;
+    margin-right: -65vw;
+    margin-bottom: 0;
+  }
+  85% {
+    height: 11vh;
+    margin-right: -85vw;
+    margin-bottom: -25vh;
+  }
+  90% {
+    height: 10vh;
+    margin-right: -85vw;
+    margin-bottom: -25vh;
+  }
+  100% {
+    height: 11vh;
+    margin-right: -85vw;
+    margin-bottom: -25vh;
+  }
+}
+
+.hand {
+  margin-right: 50vw;
+  margin-bottom: -25vh;
+  animation: tutorial 5s linear infinite;
+}
+
+  #table {
+    top: 2vh;
+  }
+
+  #banner {
+    top: -3vh;
+  }
+
+  img.dough {
+    bottom: 5vh;
+  }
+
+  #plate {
+    bottom: 4vh;
+  }
+
+  .sause {
+    bottom: 8vh;
+    width: 37vw;
+  }
+
+  .capsicum {
+    width: 33vw;
+    bottom: 11vh;
+  }
+  .bacon {
+    width: 29vw;
+    bottom: 10vh;
+  }
+  .mushroom {
+    width: 26vw;
+    bottom: 10vh;
+  }
+
+  .cheese {
+    width: 37vw;
+    bottom: 9vh;
+  }
+
+  .sause_static {
+    bottom: 8vh;
+    right: 1vh;
+  }
+
+  .cheese_static {
+    bottom: 29vh;
+    left: 6vh;
+  }
+
+  .bacon_static {
+    left: 1vh;
+    bottom: 15vh;
+  }
+
+  .capsicum_static {
+    bottom: 34vh;
+  }
+
+  .mushroom_static {
+    right: 6vh;
+    bottom: 28vh;
+  }
+
+  .hand_end_game {
+    margin-top: 35vh;
+  }
+}
+
+/* For tablets in landscape and desktops */
+@media only screen and (min-width: 1024px) {
+}
